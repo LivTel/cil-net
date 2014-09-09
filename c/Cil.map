@@ -1,0 +1,26 @@
+  RCS /RCS                             3 1 U 212.219.10.171 12345
+  TCS /TCS                             1 1                     
+  SAM /SAM                             1 1                     
+  MCB /MCB                             1 1 U 212.219.10.171 23456
+  ERH /ERH                             1 1                     
+  SRH /SRH                             1 1                     
+  IUM /IUM                             1 1                     
+  AZI /AZI                             1 1                     
+  AZD /DRVAZI                          1 1                     
+  ALT /ALT                             1 1                     
+  ALD /DRVALT                          1 1                     
+  CAS /CAS                             1 1                     
+  CAD /DRVCAS                          1 1                     
+  M01 /M01                             1 1                     
+  D01 /DRVM01                          1 1                     
+  PMC /PMC                             1 1                     
+  PMD /DRVPMD                          1 1                     
+  M02 /M02                             1 2                     
+  D02 /DRVM02                          1 2                     
+; ENC /ENC                             1 1                     
+; AGB /AGB                             4 1                     
+; AGS /AGS                             5 1                     
+; WMS /WMS                             1 1                     
+; GPS /GPS                             1 1                     
+; OIL /OIL                             1 1                     
+; SIS /SIS                             1 9                     

@@ -1,0 +1,47 @@
+#!/bin/csh
+
+# -------------------------------------------
+# Launcher for: Comms Interface Layer. (CIL).
+# -------------------------------------------
+
+onintr cleanup
+
+source /opt/ngat/etc/cshrc
+
+source ${DEPLOY_BIN}/class_setup
+source ${DEPLOY_BIN}/x_setup
+source ${DEPLOY_BIN}/util_setup
+
+set tel = $DEPLOY_SYSTEM
+
+set DAT = `date -u +"%Y_%m%d_%H%M"`
+set CIL_CONSOLE_LOG_FILE = ${DEPLOY_TMP}/cil_${tel}.log
+    
+source ${tel}_cil_args
+
+$DEPLOY_ETC/log_roll $CIL_CONSOLE_LOG_FILE 40000 3
+
+echo "TCM Invokation at $DAT ..."
+
+set POLICY   = "-Djava.security.policy=/occ/tmp/policy.dat"
+set CODEBASE
+# = "-Djava.rmi.server.codebase=file:/occ/common/experimental/ngat_tcm.jar"
+
+set PID = $DEPLOY_TMP/cil_${tel}.pid
+
+echo $$ > $PID
+     
+$JAVA -DCIL $POLICY $CODEBASE ngat.net.cil.test.CilServer --name $NAME --service-port $SVC_PORT \
+    --send-port $SEND_PORT --cil-host $CIL_HOST --cil-port $CIL_PORT \
+    --service-class $SVC_CLASS --tx-id $TX_ID --rx-id $RX_ID
+
+
+>>&  $TCM_CONSOLE_LOG_FILE
+
+#echo "RCS Process exited with status $pexit" >>&  $TCM_CONSOLE_LOG_FILE
+
+cleanup:
+echo "Cleanup on Interrupt during execution" >>&  $TCM_CONSOLE_LOG_FILE
+rm -f $PID
+
+exit 1
