@@ -163,7 +163,8 @@ public class DespatcherThread extends ControlThread {
 			int end = data.indexOf(">");
 			String strErr = data.substring(2,end);						
 			try {
-			    errNo = Integer.parseInt(strErr); 
+				// CIL error code is hexadecimal
+				errNo = Integer.parseInt(strErr, 16); 
 			} catch (Exception nx) {
 			    nx.printStackTrace();
 			    errNo = 1;
