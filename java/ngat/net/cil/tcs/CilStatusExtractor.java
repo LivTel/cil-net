@@ -208,6 +208,8 @@ public class CilStatusExtractor {
 				status.secMirrorDemand = parseDouble(24);
 				status.secMirrorPos = parseDouble(25);
 				status.focusOffset = parseDouble(26);
+				System.err.println(this.getClass().getName()+":SHOW.MECHANISMS:focus offset:"+
+						   status.focusOffset);
 				status.secMirrorStatus = TcsStatusPacket.getCode(parseString(27));
 
 				status.primMirrorSysName = parseString(0);
