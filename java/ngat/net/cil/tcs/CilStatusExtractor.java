@@ -207,6 +207,8 @@ public class CilStatusExtractor {
 				status.secMirrorName = parseString(0);
 				status.secMirrorDemand = parseDouble(24);
 				status.secMirrorPos = parseDouble(25);
+				System.err.println(this.getClass().getName()+":SHOW.MECHANISMS:secondary mirror pos:"+
+						   status.secMirrorPos);
 				status.focusOffset = parseDouble(26);
 				System.err.println(this.getClass().getName()+":SHOW.MECHANISMS:focus offset:"+
 						   status.focusOffset);
